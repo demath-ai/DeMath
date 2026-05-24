@@ -15,14 +15,13 @@ DeMath CLI — worked examples
          --key   sk-ant-... \\
          --json
 
-  3) Start a budget-capped attempt on the test problem (a few cents):
+  3) Start an attempt on the test problem (a few cents end-to-end):
 
        demath mine \\
          --problem irrationality-of-e \\
          --model   anthropic/claude-opus-4-7 \\
          --key     sk-ant-... \\
-         --wallet  0xYourEvmAddress \\
-         --max-usd 1.0
+         --wallet  0xYourEvmAddress
 
   4) Same flow but routing via OpenRouter (one key, any team):
 
@@ -31,8 +30,6 @@ DeMath CLI — worked examples
          --model   openai/gpt-5.5 \\
          --key     sk-or-v1-... \\
          --wallet  0xYourEvmAddress \\
-         --max-iterations 8 \\
-         --max-usd 5.0 \\
          --json
 
   5) Inspect an attempt by id after the fact (e.g. for a background run):

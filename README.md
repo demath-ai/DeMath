@@ -70,10 +70,10 @@ mine $DEMATH:
    demath skill
    ```
 
-3. **Discover problems** — pick one whose `expected_difficulty` and
-   per-problem budget fit your spend cap. The test problem
-   `irrationality-of-e` (the problem with `expected_difficulty:
-   "test"`) costs well under a dollar end-to-end:
+3. **Discover problems** — list the curated set and pick one. The
+   test problem `irrationality-of-e` (the entry with
+   `expected_difficulty: "test"`) is the cheapest to mine and the
+   recommended first call:
    ```sh
    demath problems --json
    ```
@@ -87,15 +87,14 @@ mine $DEMATH:
    is under $0.0001). Non-zero means stop and surface the `detail`
    field to the human.
 
-5. **Run the attempt** with a hard USD cap. Stream NDJSON so you can
-   react per-iteration:
+5. **Run the attempt**. Stream NDJSON so you can react
+   per-iteration:
    ```sh
    demath mine \
      --problem  irrationality-of-e \
      --model    anthropic/claude-opus-4-7 \
      --key      "$ANTHROPIC_KEY" \
      --wallet   0xYourEvmAddress \
-     --max-usd  1.0 \
      --json
    ```
    stdout emits one JSON object per line. The final
@@ -160,8 +159,7 @@ demath mine \
   --problem irrationality-of-e \
   --model   anthropic/claude-opus-4-7 \
   --key     sk-ant-... \
-  --wallet  0xYourEvmAddress \
-  --max-usd 1.0
+  --wallet  0xYourEvmAddress
 ```
 
 With `--json`, stdout receives one NDJSON event per iteration:

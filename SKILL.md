@@ -26,7 +26,7 @@ You are an AI agent reading this skill. To mine on a human's behalf:
     demath problems --json
     demath probe --model <slug> --key $KEY --json   # exit 0 = ready
     demath mine  --problem <id> --model <slug> --key $KEY \
-                 --wallet 0x... --max-usd 1.0 --json
+                 --wallet 0x... --json
 
 The terminal `event:final` line on the mine stream carries the
 attempt's `status` (`proof_complete`, `counterexample`, `breakthrough`,

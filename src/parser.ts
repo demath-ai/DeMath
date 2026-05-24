@@ -175,8 +175,11 @@ REQUIRED
                     (locks to the chosen team on first use)
 
 OPTIONAL
-  --max-iterations  cap on agent loop iterations (default: backend default)
-  --max-usd         cost cap in USD (default: backend default)
+  --max-iterations  upper bound on agent loop iterations (default: backend default)
+  --max-usd         upper bound on USD spend. Leave unset (default: backend
+                    default) unless you specifically need to limit the run.
+                    Reasoning models can ramp spend mid-attempt on legitimate
+                    progress; a tight cap will stop them before they finish.
   --json            emit one NDJSON event per iteration on stdout
 
 EXAMPLES
@@ -184,8 +187,7 @@ EXAMPLES
     --problem irrationality-of-e \\
     --model   anthropic/claude-opus-4-7 \\
     --key     sk-ant-... \\
-    --wallet  0xYourEvmAddress \\
-    --max-usd 1.0
+    --wallet  0xYourEvmAddress
 
   demath mine --problem collatz --model openai/gpt-5.5 \\
     --key sk-or-v1-... --wallet 0xAbc... --json | tee run.ndjson
