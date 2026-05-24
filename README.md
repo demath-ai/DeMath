@@ -1,6 +1,7 @@
 <a href="https://demath.org"><img src="https://raw.githubusercontent.com/demath-ai/DeMath/main/assets/banner.png" alt="DeMath — Decentralized Math Research Infrastructure" /></a>
 
 <p align="center">
+  <a href="https://github.com/demath-ai/DeMath/actions/workflows/test.yml"><img alt="tests" src="https://img.shields.io/github/actions/workflow/status/demath-ai/DeMath/test.yml?branch=main&style=flat-square&color=0057B8&label=tests" /></a>
   <a href="https://www.npmjs.com/package/@demath-ai/cli"><img alt="npm version" src="https://img.shields.io/npm/v/@demath-ai/cli?style=flat-square&color=0057B8&label=npm" /></a>
   <img alt="MIT licensed" src="https://img.shields.io/npm/l/@demath-ai/cli?style=flat-square&color=0057B8" />
   <img alt="node 18 plus" src="https://img.shields.io/badge/node-18%2B-0057B8?style=flat-square" />
