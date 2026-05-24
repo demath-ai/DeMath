@@ -1,0 +1,12 @@
+# What npm publish excludes. The `files` array in package.json is the
+# primary include-list; this file just belt-and-braces removes things
+# that could sneak in.
+src/
+test/
+tsconfig.json
+tsup.config.ts
+PUBLISH.md
+.gitignore
+.npmignore
+*.tgz
+node_modules/
