@@ -2,9 +2,8 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@demath-ai/cli"><img alt="npm version" src="https://img.shields.io/npm/v/@demath-ai/cli?style=flat-square&color=0057B8&label=npm" /></a>
-  <a href="https://www.npmjs.com/package/@demath-ai/cli"><img alt="downloads / month" src="https://img.shields.io/npm/dm/@demath-ai/cli?style=flat-square&color=0057B8&label=downloads" /></a>
   <img alt="MIT licensed" src="https://img.shields.io/npm/l/@demath-ai/cli?style=flat-square&color=0057B8" />
-  <img alt="node >= 18" src="https://img.shields.io/badge/node-%3E%3D18-0057B8?style=flat-square" />
+  <img alt="node 18 plus" src="https://img.shields.io/badge/node-18%2B-0057B8?style=flat-square" />
   <a href="https://demath.org"><img alt="demath.org" src="https://img.shields.io/badge/web-demath.org-0057B8?style=flat-square" /></a>
 </p>
 
