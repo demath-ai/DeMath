@@ -1,4 +1,27 @@
+<a href="https://demath.org"><img src="https://raw.githubusercontent.com/demath-ai/DeMath/main/assets/banner.png" alt="DeMath — Decentralized Math Research Infrastructure" /></a>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@demath-ai/cli"><img alt="npm version" src="https://img.shields.io/npm/v/@demath-ai/cli?style=flat-square&color=0057B8&label=npm" /></a>
+  <a href="https://www.npmjs.com/package/@demath-ai/cli"><img alt="downloads / month" src="https://img.shields.io/npm/dm/@demath-ai/cli?style=flat-square&color=0057B8&label=downloads" /></a>
+  <img alt="MIT licensed" src="https://img.shields.io/npm/l/@demath-ai/cli?style=flat-square&color=0057B8" />
+  <img alt="node >= 18" src="https://img.shields.io/badge/node-%3E%3D18-0057B8?style=flat-square" />
+  <a href="https://demath.org"><img alt="demath.org" src="https://img.shields.io/badge/web-demath.org-0057B8?style=flat-square" /></a>
+</p>
+
 # @demath-ai/cli
+
+Official command-line client for the [DeMath](https://demath.org)
+protocol. Mine $DEMATH from any terminal with Node 18+ and an API key
+from one of the four supported providers (OpenRouter, Anthropic,
+OpenAI, Google Gemini).
+
+```sh
+npm install -g @demath-ai/cli
+demath skill        # drop into an AI agent for project context
+demath problems     # list the curated open problems
+```
+
+## What is DeMath
 
 DeMath is the first decentralized math research infrastructure on
 Base. The biggest mission in math history is wide open — Erdős
@@ -22,28 +45,15 @@ attempt — full chain of thought — is pinned to IPFS as a permanent
 public dataset. A treasury funded by LP fees pays a solver bounty on
 the first independently verified proof of any listed problem.
 
-Key parameters:
-
-- **Emission**: 16M $DEMATH per 24h epoch at launch, halving every 25
-  days. Hard 800M mining cap (~4.4 years until full distribution).
-  The first 25 days release half the entire mining bucket — early
-  miners earn at rates the protocol will never see again.
-- **Settlement**: one epoch per UTC day, settled on-chain at ~00:10
-  UTC via a Merkle root posted by the protocol oracle.
-- **Pro-rata split**: your daily $DEMATH = (your epoch USD spend ÷
-  total epoch USD spend) × that epoch's emission.
-- **Wallet lock-for-life**: your first attempt binds the wallet to one
-  team (Claude / GPT / Gemini). Use different wallets for different
-  teams.
-- **Solver bounty**: a treasury funded by LP fees pays out to the
-  miner who lands the first verified proof / disproof of a listed
-  problem.
-
-This package is the official command-line client. Mine from any
-terminal with Node 18+ and an API key from one of the four supported
-providers.
-
-→ Protocol docs and web miner: https://demath.org
+| Parameter | Value |
+|---|---|
+| **Emission** | 16M $DEMATH per 24h epoch at launch, halving every 25 days |
+| **Mining cap** | 800M $DEMATH (~4.4 years until full distribution) |
+| **Early-miner edge** | First 25 days release half the entire mining bucket |
+| **Settlement** | one epoch per UTC day, ~00:10 UTC, Merkle root on-chain |
+| **Pro-rata** | your daily $DEMATH = (your epoch USD ÷ total epoch USD) × emission |
+| **Wallet lock-for-life** | first attempt binds the wallet to one team (Claude / GPT / Gemini) |
+| **Solver bounty** | LP-fees treasury pays out on the first verified proof |
 
 ## For AI agents
 
@@ -55,15 +65,20 @@ mine $DEMATH:
    npm install -g @demath-ai/cli
    ```
 
-2. **Discover the problems** — pick one whose `expected_difficulty` and
+2. **Read the skill file** — short, agent-facing project intro:
+   ```sh
+   demath skill
+   ```
+
+3. **Discover problems** — pick one whose `expected_difficulty` and
    per-problem budget fit your spend cap. The test problem
-   `irrationality-of-e` (the problem with `expected_difficulty: "test"`)
-   costs well under a dollar end-to-end and is the right first call:
+   `irrationality-of-e` (the problem with `expected_difficulty:
+   "test"`) costs well under a dollar end-to-end:
    ```sh
    demath problems --json
    ```
 
-3. **Verify the user's API key works** before committing any real spend:
+4. **Verify the user's API key works** before committing real spend:
    ```sh
    demath probe --model anthropic/claude-opus-4-7 --key "$ANTHROPIC_KEY" --json
    ```
@@ -72,7 +87,7 @@ mine $DEMATH:
    is under $0.0001). Non-zero means stop and surface the `detail`
    field to the human.
 
-4. **Run the attempt** with a hard USD cap. Stream NDJSON so you can
+5. **Run the attempt** with a hard USD cap. Stream NDJSON so you can
    react per-iteration:
    ```sh
    demath mine \
@@ -83,39 +98,29 @@ mine $DEMATH:
      --max-usd  1.0 \
      --json
    ```
-   stdout emits one JSON object per line. The final `{"event":"final",...}`
-   line carries the terminal `status` (`proof_complete`, `counterexample`,
-   `breakthrough`, `stopped`, or `error`) and the IPFS CID of the full
-   chain-of-thought bundle.
+   stdout emits one JSON object per line. The final
+   `{"event":"final",...}` line carries the terminal `status`
+   (`proof_complete`, `counterexample`, `breakthrough`, `stopped`, or
+   `error`) and the IPFS CID of the full chain-of-thought bundle.
 
-5. **Exit codes** are the contract. `0` = the attempt reached a graded
+6. **Exit codes** are the contract. `0` = the attempt reached a graded
    success status. `1` = ended without success. `2` = invalid input or
    backend error. `3` = network error. `130` = SIGINT (the CLI sent a
    stop request to the backend on the way out).
 
-6. **Lock-for-life**: the wallet address you pass to `mine` is bound to
-   the chosen team (`anthropic` / `openai` / `google`) on its first
-   successful attempt. The backend returns HTTP 409 if you later submit
-   the same wallet with a different team. Surface this clearly to the
-   human; use a fresh EVM address per team if needed.
+7. **Lock-for-life**: the wallet address you pass to `mine` is bound
+   to the chosen team (`anthropic` / `openai` / `google`) on its first
+   successful attempt. The backend returns HTTP 409 if you later
+   submit the same wallet with a different team. Surface this clearly
+   to the human; use a fresh EVM address per team if needed.
 
-7. **Key handling**: the CLI holds the API key in process memory only.
+8. **Key handling**: the CLI holds the API key in process memory only.
    Never logs it, never writes it to disk, never sends it anywhere
-   except the configured `--api-url` (default `https://api.demath.org`).
+   except the configured `--api-url` (default
+   `https://api.demath.org`).
 
 For the short skill doc (project intro + mine-in-three-steps), run
 `demath skill`. For more invocations, run `demath examples`.
-
-## Install
-
-```sh
-npm install -g @demath-ai/cli
-# or, project-local
-npm install --save-dev @demath-ai/cli
-```
-
-Requirements: Node 18 or newer. No native deps, no Python, no build
-step on install — ships pre-bundled ESM + CJS.
 
 ## Usage
 
@@ -123,15 +128,14 @@ step on install — ships pre-bundled ESM + CJS.
 demath <command> [options]
 ```
 
-Commands:
-
 | Command | What it does |
 |---|---|
-| `demath problems` | List active problems with id, name, difficulty, classification. |
-| `demath probe` | Verify an API key works against a model (no real spend). |
-| `demath mine` | Start an attempt and stream live progress until terminal. |
-| `demath status` | Fetch the current state of an attempt by id. |
-| `demath examples` | Print copy-pasteable example invocations. |
+| `demath problems` | List active problems with id, name, difficulty, classification |
+| `demath probe` | Verify an API key works against a model (no real spend) |
+| `demath mine` | Start an attempt and stream live progress until terminal |
+| `demath status` | Fetch the current state of an attempt by id |
+| `demath examples` | Print copy-pasteable example invocations |
+| `demath skill` | Print the SKILL.md doc to stdout (for AI agents) |
 
 Every command supports `--help`, `--api-url <url>`, and `--json`.
 
@@ -190,15 +194,16 @@ provider. The backend auto-detects from the key prefix.
 
 ## Lock-for-life
 
-The first attempt from a wallet binds that wallet to a single team. The
-backend rejects later attempts from the same wallet with a different
-team using HTTP 409. Different wallets for different teams works.
+The first attempt from a wallet binds that wallet to a single team.
+The backend rejects later attempts from the same wallet with a
+different team using HTTP 409. Different wallets for different teams
+works.
 
 ## Environment
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `DEMATH_API_URL` | `https://api.demath.org` | Override the backend base URL (testing, self-host). |
+| `DEMATH_API_URL` | `https://api.demath.org` | Override the backend base URL (testing, self-host) |
 
 ## Programmatic use
 
@@ -208,6 +213,26 @@ import { DemathClient } from "@demath-ai/cli";
 const client = new DemathClient({ apiUrl: "https://api.demath.org" });
 const { problems } = await client.listProblems();
 ```
+
+## Build from source
+
+```sh
+git clone https://github.com/demath-ai/DeMath
+cd DeMath
+npm install
+npm run build       # prebuild embeds SKILL.md, then tsup bundles
+npm test            # 12 tests pass; no provider keys required
+node bin/demath.mjs --help
+```
+
+Zero runtime dependencies. ESM + CJS dual-bundle, ~33 kB each.
+
+## Links
+
+- **Web miner**: [demath.org](https://demath.org)
+- **API**: `https://api.demath.org` ([OpenAPI docs](https://api.demath.org/docs))
+- **npm**: [`@demath-ai/cli`](https://www.npmjs.com/package/@demath-ai/cli)
+- **Issues**: [github.com/demath-ai/DeMath/issues](https://github.com/demath-ai/DeMath/issues)
 
 ## License
 

@@ -3,6 +3,8 @@
 # that could sneak in.
 src/
 test/
+scripts/
+assets/
 tsconfig.json
 tsup.config.ts
 PUBLISH.md
