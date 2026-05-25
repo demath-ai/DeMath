@@ -18,7 +18,7 @@ DeMath CLI — worked examples
   3) Start an attempt on the test problem (a few cents end-to-end):
 
        demath mine \\
-         --problem irrationality-of-e \\
+         --problem riemann-hypothesis \\
          --model   anthropic/claude-opus-4-7 \\
          --key     sk-ant-... \\
          --wallet  0xYourEvmAddress

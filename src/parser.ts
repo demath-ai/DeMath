@@ -184,7 +184,7 @@ OPTIONAL
 
 EXAMPLES
   demath mine \\
-    --problem irrationality-of-e \\
+    --problem riemann-hypothesis \\
     --model   anthropic/claude-opus-4-7 \\
     --key     sk-ant-... \\
     --wallet  0xYourEvmAddress

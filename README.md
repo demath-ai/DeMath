@@ -24,11 +24,10 @@ demath problems     # list the curated open problems
 ## What is DeMath
 
 DeMath is the first decentralized math research infrastructure on
-Base. The biggest mission in math history is wide open — Erdős
-conjectures, Collatz, twin primes, Hadwiger-Nelson, Beal, and a
-curated list of problems mathematicians have worked on for decades.
-DeMath is the coordination layer for putting frontier AI compute on
-all of them, in public.
+Base. The biggest mission in math history is wide open — the Riemann
+hypothesis and a curated set of open Erdős problems that
+mathematicians have worked on for decades. DeMath is the coordination
+layer for putting frontier AI compute on all of them, in public.
 
 In May 2026, OpenAI's internal model autonomously disproved Erdős's
 1946 planar unit-distance conjecture — independently ratified as a
@@ -70,10 +69,10 @@ mine $DEMATH:
    demath skill
    ```
 
-3. **Discover problems** — list the curated set and pick one. The
-   test problem `irrationality-of-e` (the entry with
-   `expected_difficulty: "test"`) is the cheapest to mine and the
-   recommended first call:
+3. **Discover problems** — list the curated set and pick one. All ten
+   are genuinely unsolved (the Riemann hypothesis plus nine open Erdős
+   problems), so there is no cheap warm-up run — always set a
+   `--max-usd` cap on your first attempt to bound spend:
    ```sh
    demath problems --json
    ```
@@ -91,7 +90,7 @@ mine $DEMATH:
    per-iteration:
    ```sh
    demath mine \
-     --problem  irrationality-of-e \
+     --problem  riemann-hypothesis \
      --model    anthropic/claude-opus-4-7 \
      --key      "$ANTHROPIC_KEY" \
      --wallet   0xYourEvmAddress \
@@ -156,7 +155,7 @@ demath probe --model openai/gpt-5.5            --key sk-or-v1-... --json
 
 ```sh
 demath mine \
-  --problem irrationality-of-e \
+  --problem riemann-hypothesis \
   --model   anthropic/claude-opus-4-7 \
   --key     sk-ant-... \
   --wallet  0xYourEvmAddress

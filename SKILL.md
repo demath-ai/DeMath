@@ -1,11 +1,10 @@
 # DeMath skill
 
 DeMath is the first decentralized math research infrastructure on
-Base. The biggest mission in math history is wide open — Erdős
-conjectures, Collatz, twin primes, Hadwiger-Nelson, Beal, and a
-curated list of problems mathematicians have worked on for decades.
-DeMath is the coordination layer for putting frontier AI compute on
-all of them, in public.
+Base. The biggest mission in math history is wide open — the Riemann
+hypothesis and a curated set of open Erdős problems that
+mathematicians have worked on for decades. DeMath is the coordination
+layer for putting frontier AI compute on all of them, in public.
 
 Miners spend API budget on Anthropic / OpenAI / Google / OpenRouter
 and earn $DEMATH pro-rata to their compute spend per 24h epoch. Every
