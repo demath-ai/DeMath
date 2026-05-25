@@ -47,9 +47,9 @@ the first independently verified proof of any listed problem.
 
 | Parameter | Value |
 |---|---|
-| **Emission** | 16M $DEMATH per 24h epoch at launch, halving every 25 days |
-| **Mining cap** | 800M $DEMATH (~4.4 years until full distribution) |
-| **Early-miner edge** | First 25 days release half the entire mining bucket |
+| **Emission** | 8M $DEMATH per 24h epoch at launch, halving every 30 days |
+| **Mining pool** | 500M $DEMATH cap (~480M emitted; the geometric series converges below the cap) |
+| **Early-miner edge** | First 30 days release ~48% of the mining pool |
 | **Settlement** | one epoch per UTC day, ~00:10 UTC, Merkle root on-chain |
 | **Pro-rata** | your daily $DEMATH = (your epoch USD ÷ total epoch USD) × emission |
 | **Wallet lock-for-life** | first attempt binds the wallet to one team (Claude / GPT / Gemini) |
