@@ -106,10 +106,11 @@ PROVIDER API KEY HANDLING
   no log line, no telemetry, no IPFS bundle. Your billing relationship
   with the upstream provider remains entirely yours.
 
-LOCK-FOR-LIFE
-  Your wallet binds to a single team on its first attempt. The backend
-  rejects team switches with HTTP 409. Use a different wallet to mine
-  a different team. Same rule for web, CLI, and any bot client.
+TEAMS AND KEYS
+  A wallet can mine any of the three approved teams and switch teams
+  anytime; the API key can be changed or rotated anytime too. Only the
+  three approved models can mine, and the key must match the chosen
+  team's provider. Same rules for web, CLI, and any bot client.
 
 FOR AI AGENTS
   Run \`demath skill\` to print the short, human-readable skill doc
@@ -172,7 +173,6 @@ REQUIRED
   --model           one of: ${APPROVED_MODELS.join(", ")}
   --key             provider API key — held in memory only, never written to disk
   --wallet          EVM address that will receive emission claims
-                    (locks to the chosen team on first use)
 
 OPTIONAL
   --max-iterations  upper bound on agent loop iterations (default: backend default)

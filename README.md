@@ -51,7 +51,7 @@ the first independently verified proof of any listed problem.
 | **Early-miner edge** | First 30 days release ~48% of the mining pool |
 | **Settlement** | one epoch per UTC day, ~00:10 UTC, Merkle root on-chain |
 | **Pro-rata** | your daily $DEMATH = (your epoch USD ÷ total epoch USD) × emission |
-| **Wallet lock-for-life** | first attempt binds the wallet to one team (Claude / GPT / Gemini) |
+| **Teams** | mine any of the 3 approved teams (Claude / GPT / Gemini); switch teams or rotate your key anytime |
 | **Solver bounty** | LP-fees treasury pays out on the first verified proof |
 
 ## For AI agents
@@ -106,11 +106,11 @@ mine $DEMATH:
    backend error. `3` = network error. `130` = SIGINT (the CLI sent a
    stop request to the backend on the way out).
 
-7. **Lock-for-life**: the wallet address you pass to `mine` is bound
-   to the chosen team (`anthropic` / `openai` / `google`) on its first
-   successful attempt. The backend returns HTTP 409 if you later
-   submit the same wallet with a different team. Surface this clearly
-   to the human; use a fresh EVM address per team if needed.
+7. **Teams and keys**: a wallet can mine any of the three approved
+   teams (`anthropic` / `openai` / `google`) and switch teams anytime.
+   The API key can be changed or rotated anytime too. The only
+   constraints: the model must be one of the three approved slugs, and
+   the submitted key must match the chosen team's provider.
 
 8. **Key handling**: the CLI holds the API key in process memory only.
    Never logs it, never writes it to disk, never sends it anywhere
@@ -189,12 +189,13 @@ The backend rejects anything not on this list:
 You can route via OpenRouter (single key, any team) or direct to a
 provider. The backend auto-detects from the key prefix.
 
-## Lock-for-life
+## Teams and keys
 
-The first attempt from a wallet binds that wallet to a single team.
-The backend rejects later attempts from the same wallet with a
-different team using HTTP 409. Different wallets for different teams
-works.
+A wallet can mine any of the three approved teams and switch teams
+anytime. The API key can be changed or rotated anytime too. The only
+constraints: the model must be one of the three approved slugs, the
+submitted key must match the chosen team's provider, and emission is
+pro-rata to real API spend.
 
 ## Environment
 

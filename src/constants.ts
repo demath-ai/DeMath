@@ -1,11 +1,15 @@
 // Shared CLI constants. Single source of truth.
 
-export const CLI_VERSION = "0.1.0";
+// Derived from package.json (resolveJsonModule on; tsup inlines it at build),
+// so --version can never drift from the published package version.
+import { version } from "../package.json";
+
+export const CLI_VERSION = version;
 
 // Honest UA string — backend's Cloudflare bot management whitelists this prefix.
 // Match the Python CLI convention (demath-cli/<v>) but suffix with `-npm` so
-// server-side logs can tell the two clients apart.
-export const USER_AGENT = `demath-cli-npm/${CLI_VERSION} (+https://github.com/demath-ai/proj-dmv0/tree/main/tools/demath-cli-npm)`;
+// server-side logs can tell the two clients apart. Points at the public repo.
+export const USER_AGENT = `demath-cli-npm/${CLI_VERSION} (+https://github.com/demath-ai/DeMath)`;
 
 export const DEFAULT_API_URL =
   process.env.DEMATH_API_URL?.trim() || "https://api.demath.org";

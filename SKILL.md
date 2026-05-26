@@ -32,12 +32,13 @@ attempt's `status` (`proof_complete`, `counterexample`, `breakthrough`,
 `stopped`, or `error`) and the IPFS CID of the full chain-of-thought
 bundle.
 
-## Wallet lock-for-life
+## Teams and keys
 
-The wallet you submit to `mine` binds to a single team (Claude / GPT /
-Gemini) on its first successful attempt. The backend rejects later
-attempts from that same wallet against a different team with HTTP 409.
-Use a fresh EVM address per team.
+A wallet can mine any of the 3 approved teams (Claude / GPT / Gemini)
+and switch teams anytime. You can change or rotate the API key anytime
+too. The only constraints: mine one of the 3 approved models, and the
+submitted key must match the chosen team's provider. Emission is
+pro-rata to real API$ spent; no rate limit.
 
 ## What DeMath does NOT do with the human's API key
 

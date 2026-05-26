@@ -36,10 +36,22 @@ DeMath CLI — worked examples
 
        demath status --attempt <attempt_id> --json
 
+  6) Switch team or rotate the API key — no lock, no stored state. Just run
+     mine again with a different --model and/or --key:
+
+       # switch the same wallet from Claude to GPT
+       demath mine --problem riemann-hypothesis \\
+         --model openai/gpt-5.5 --key sk-proj-... --wallet 0xYourEvmAddress
+
+       # rotate to a new key (same team)
+       demath mine --problem riemann-hypothesis \\
+         --model openai/gpt-5.5 --key sk-proj-NEWKEY --wallet 0xYourEvmAddress
+
 Notes:
-  - Wallet → team lock-for-life: the first attempt binds your wallet to a
-    team (anthropic / openai / google). Subsequent attempts with a different
-    team return HTTP 409. Use a different wallet to mine a different team.
+  - Teams and keys: a wallet can mine any of the three approved teams
+    (anthropic / openai / google) and switch teams anytime; the key can be
+    changed or rotated anytime. Only the three approved models can mine, and
+    the key must match the chosen team's provider.
   - The CLI never writes your API key to disk. The key is held in memory
     for the duration of the attempt and only ever sent to api.demath.org.
   - --json on any command emits machine-readable output on stdout; human
