@@ -46,9 +46,9 @@ the first independently verified proof of any listed problem.
 
 | Parameter | Value |
 |---|---|
-| **Emission** | 8M $DEMATH per 24h epoch at launch, halving every 30 days |
-| **Mining pool** | 500M $DEMATH cap (~480M emitted; the geometric series converges below the cap) |
-| **Early-miner edge** | First 30 days release ~48% of the mining pool |
+| **Emission** | 4M $DEMATH per 24h epoch at launch, halving every 30 days |
+| **Mining pool** | 240M $DEMATH (the geometric halving series converges to the cap) |
+| **Early-miner edge** | First 30 days release ~50% of the mining pool |
 | **Settlement** | one epoch per UTC day, ~00:10 UTC, Merkle root on-chain |
 | **Pro-rata** | your daily $DEMATH = (your epoch USD ÷ total epoch USD) × emission |
 | **Teams** | mine any of the 3 approved teams (Claude / GPT / Gemini); switch teams or rotate your key anytime |
