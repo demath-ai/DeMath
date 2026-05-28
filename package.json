@@ -1,7 +1,7 @@
 {
   "name": "@demath-ai/cli",
-  "version": "0.1.6",
-  "description": "Pure JS/TS CLI for mining $DEMATH \u2014 AI-agent-friendly client for the DeMath public API.",
+  "version": "0.1.7",
+  "description": "Pure JS/TS CLI for mining $DEMATH — AI-agent-friendly client for the DeMath public API.",
   "license": "MIT",
   "author": "demath-ai",
   "homepage": "https://demath.org",

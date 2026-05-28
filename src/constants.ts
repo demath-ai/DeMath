@@ -18,7 +18,7 @@ export const DEFAULT_API_URL =
 // hint for --help and validation. Backend will still reject anything not in
 // its PRICING table regardless of what's here.
 export const APPROVED_MODELS = [
-  "anthropic/claude-opus-4-7",
+  "anthropic/claude-opus-4-8",
   "openai/gpt-5.5",
   "google/gemini-3-deep-think",
 ] as const;

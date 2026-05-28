@@ -85,7 +85,7 @@ test("probe hits /providers/probe and exits 0 on ok=true", async () => {
       "--api-url",
       mock.url,
       "--model",
-      "anthropic/claude-opus-4-7",
+      "anthropic/claude-opus-4-8",
       "--key",
       "sk-ant-test",
       "--json",
@@ -98,7 +98,7 @@ test("probe hits /providers/probe and exits 0 on ok=true", async () => {
     const got = mock.getReceived();
     assert.equal(got.method, "POST");
     assert.equal(got.url, "/providers/probe");
-    assert.equal(got.body.model, "anthropic/claude-opus-4-7");
+    assert.equal(got.body.model, "anthropic/claude-opus-4-8");
     assert.equal(got.body.api_key, "sk-ant-test");
     assert.match(got.ua, /^demath-cli-npm\//);
   } finally {

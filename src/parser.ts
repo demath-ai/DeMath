@@ -151,7 +151,7 @@ REQUIRED
             backend auto-detects the provider from the key prefix.
 
 EXAMPLES
-  demath probe --model anthropic/claude-opus-4-7 --key sk-ant-...
+  demath probe --model anthropic/claude-opus-4-8 --key sk-ant-...
   demath probe --model openai/gpt-5.5 --key sk-or-v1-... --json
 
 EXIT CODES
@@ -185,7 +185,7 @@ OPTIONAL
 EXAMPLES
   demath mine \\
     --problem riemann-hypothesis \\
-    --model   anthropic/claude-opus-4-7 \\
+    --model   anthropic/claude-opus-4-8 \\
     --key     sk-ant-... \\
     --wallet  0xYourEvmAddress
 

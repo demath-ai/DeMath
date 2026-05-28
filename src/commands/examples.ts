@@ -11,7 +11,7 @@ DeMath CLI — worked examples
   2) Probe your API key against a model before committing (zero spend):
 
        demath probe \\
-         --model anthropic/claude-opus-4-7 \\
+         --model anthropic/claude-opus-4-8 \\
          --key   sk-ant-... \\
          --json
 
@@ -19,7 +19,7 @@ DeMath CLI — worked examples
 
        demath mine \\
          --problem riemann-hypothesis \\
-         --model   anthropic/claude-opus-4-7 \\
+         --model   anthropic/claude-opus-4-8 \\
          --key     sk-ant-... \\
          --wallet  0xYourEvmAddress
 

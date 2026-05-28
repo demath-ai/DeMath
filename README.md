@@ -79,7 +79,7 @@ mine $DEMATH:
 
 4. **Verify the user's API key works** before committing real spend:
    ```sh
-   demath probe --model anthropic/claude-opus-4-7 --key "$ANTHROPIC_KEY" --json
+   demath probe --model anthropic/claude-opus-4-8 --key "$ANTHROPIC_KEY" --json
    ```
    Exit code 0 means the key passed a 16-token round-trip (the lowest
    value any reasoning model in the matrix accepts; total probe spend
@@ -91,7 +91,7 @@ mine $DEMATH:
    ```sh
    demath mine \
      --problem  riemann-hypothesis \
-     --model    anthropic/claude-opus-4-7 \
+     --model    anthropic/claude-opus-4-8 \
      --key      "$ANTHROPIC_KEY" \
      --wallet   0xYourEvmAddress \
      --json
@@ -147,7 +147,7 @@ demath problems --json | jq '.problems[].id'
 ### `demath probe`
 
 ```sh
-demath probe --model anthropic/claude-opus-4-7 --key sk-ant-...
+demath probe --model anthropic/claude-opus-4-8 --key sk-ant-...
 demath probe --model openai/gpt-5.5            --key sk-or-v1-... --json
 ```
 
@@ -156,7 +156,7 @@ demath probe --model openai/gpt-5.5            --key sk-or-v1-... --json
 ```sh
 demath mine \
   --problem riemann-hypothesis \
-  --model   anthropic/claude-opus-4-7 \
+  --model   anthropic/claude-opus-4-8 \
   --key     sk-ant-... \
   --wallet  0xYourEvmAddress
 ```
@@ -182,7 +182,7 @@ demath status --attempt 65df82b6ea7f4aeeab86f60505571491 --json | jq .status
 
 The backend rejects anything not on this list:
 
-- `anthropic/claude-opus-4-7` — Claude Opus 4.7
+- `anthropic/claude-opus-4-8` — Claude Opus 4.8
 - `openai/gpt-5.5` — GPT-5.5
 - `google/gemini-3-deep-think` — Gemini 3.1 Pro
 
